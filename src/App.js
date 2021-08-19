@@ -1,11 +1,12 @@
-import './css/App.css';
+import Header from "./components/Header";
+import "./css/App.css";
 
 function App() {
-  return (
-    <div>
-      <h1>Welcome to Algorithm Visualizer</h1>
-    </div>
-  );
+	return (
+		<div>
+			<Header />
+		</div>
+	);
 }
 
 export default App;
