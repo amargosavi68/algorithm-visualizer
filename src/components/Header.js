@@ -10,13 +10,13 @@ import { Menu, GitHub } from "@material-ui/icons";
 import Navigation from "./Navigation";
 
 const iconStyle = {
-     margin: "0px 15px 0px 5px",
+     margin: "0px 0px 0px 5px",
 };
 
 const headerNameStyle = {
      padding: "15px 0px",
      fontWeight: "600",
-     width: "90%",
+     width: "95%",
 };
 
 const Header = (props) => {
