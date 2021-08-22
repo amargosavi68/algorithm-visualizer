@@ -26,9 +26,14 @@ const Header = (props) => {
      const toggleDrawer = () => {
           setToggle(!toggle);
      };
+     
+     const setIndex = (key) => {
+          toggleDrawer();
+          setSelectedListIndex(key)
+     }
 
      return (
-          <div>
+          <div className="header">
                <AppBar color="secondary" position="static">
                     <Toolbar variant="dense">
                          <IconButton
@@ -43,7 +48,7 @@ const Header = (props) => {
                          <Drawer anchor="left" open={toggle} onClose={() => toggleDrawer()}>
                               <Navigation
                                    selectedListIndex={selectedListIndex}
-                                   setSelectedListIndex={(key) => setSelectedListIndex(key)}
+                                   setSelectedListIndex={(key) => setIndex(key)}
                               />
                          </Drawer>
                          <Typography style={headerNameStyle} variant="h5" color="inherit">

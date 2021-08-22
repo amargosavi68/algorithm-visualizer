@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
      Divider,
      List,
@@ -31,7 +31,6 @@ const toolbarStyle = {
 };
 
 const Navigation = (props) => {
-     const [itemKey, setItemKey] = useState(0);
 
      return (
           <div style={divStyle}>
@@ -64,9 +63,9 @@ const Navigation = (props) => {
                          button
                          component={Link}
                          to="developers"
-                         selected={itemKey === 7}
+                         selected={props.selectedListIndex === 7}
                          key={0}
-                         onClick={(e) => setItemKey(7)}
+                         onClick={(e) => props.setSelectedListIndex(7)}
                     >
                          <ListItemIcon>
                               <GroupAdd />
