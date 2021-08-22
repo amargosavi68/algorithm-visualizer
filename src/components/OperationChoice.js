@@ -2,6 +2,11 @@ import { FormControlLabel, Radio, RadioGroup } from "@material-ui/core";
 import React from "react";
 
 const OperationChoice = (props) => {
+
+     const handleRadioChange = (e) => {
+          console.log(e);
+     }
+
      const RadioButtons = () => {
           const { pathname } = window.location;
           console.log(pathname);
@@ -16,24 +21,28 @@ const OperationChoice = (props) => {
                                         control={<Radio />}
                                         label="Insert"
                                         labelPlacement="end"
+                                        onChange={handleRadioChange}
                                    />
                                    <FormControlLabel
                                         value="Update"
                                         control={<Radio />}
                                         label="Update"
                                         labelPlacement="end"
+                                        onChange={handleRadioChange}
                                    />
                                    <FormControlLabel
                                         value="Search"
                                         control={<Radio />}
                                         label="Search"
                                         labelPlacement="end"
+                                        onChange={handleRadioChange}
                                    />
                                    <FormControlLabel
                                         value="Delete"
                                         control={<Radio />}
                                         label="Delete"
                                         labelPlacement="end"
+                                        onChange={handleRadioChange}
                                    />
                               </RadioGroup>
                          </div>
