@@ -1,3 +1,4 @@
+import { Container } from "@material-ui/core";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Array from "./components/Array";
@@ -15,7 +16,7 @@ function App() {
 		<div>
 			<Router>
 				<Header />
-				<div className="app__main">
+				<Container className="app__main">
 					<Switch>
 						<Route path="/" component={Array} exact />
 						<Route path="/array" component={Array} />
@@ -25,7 +26,7 @@ function App() {
 						<Route path="/binary_search" component={BinarySearch} />
 						<Route path="/developers" component={Developers} />
 					</Switch>
-				</div>
+				</Container>
 				<Footer />
 			</Router>
 		</div>

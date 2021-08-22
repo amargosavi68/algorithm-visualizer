@@ -1,9 +1,10 @@
 import React from 'react'
+import OperationChoice from './OperationChoice'
 
 const Stack = (props) => {
      return (
           <div>
-               <h3>Stack is here</h3>
+               <OperationChoice />
           </div>
      )
 }
