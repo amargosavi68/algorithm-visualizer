@@ -1,0 +1,16 @@
+.header {
+     position: fixed;
+     width: 100%;
+     top: 0;
+     z-index: 100;
+}
+
+.header__name {
+     padding: 15px 0px;
+     font-weight: 600;
+     width: 95%;
+}
+
+.header__icon {
+     margin: 0px 0px 0px 5px;
+}

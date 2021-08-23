@@ -1,0 +1,25 @@
+.home__cards {
+     position: relative;
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+     justify-content: space-around;
+     align-items: center;
+     min-height: 60vh;
+     background-color: tomato;
+}
+
+.home__card {
+     position: relative;
+     width: 200px;
+     height: 150px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     text-decoration: none;
+     margin: 10px 50px;
+}
+
+.home__card:hover {
+     transform: scale(1.008);
+}

@@ -8,16 +8,8 @@ import {
 } from "@material-ui/core";
 import { Menu, GitHub } from "@material-ui/icons";
 import Navigation from "./Navigation";
+import '../css/Header.css';
 
-const iconStyle = {
-     margin: "0px 0px 0px 5px",
-};
-
-const headerNameStyle = {
-     padding: "15px 0px",
-     fontWeight: "600",
-     width: "95%",
-};
 
 const Header = (props) => {
 
@@ -38,7 +30,7 @@ const Header = (props) => {
                <AppBar color="secondary" position="static">
                     <Toolbar variant="dense">
                          <IconButton
-                              style={iconStyle}
+                              className="header__icon"
                               edge="start"
                               color="inherit"
                               aria-label="menu"
@@ -52,11 +44,11 @@ const Header = (props) => {
                                    setSelectedListIndex={(key) => setIndex(key)}
                               />
                          </Drawer>
-                         <Typography style={headerNameStyle} variant="h5" color="inherit">
+                         <Typography className="header__name" variant="h5" color="inherit">
                               Algorithm Visualizer
                          </Typography>
                          <IconButton
-                              style={iconStyle}
+                              className="header__icon"
                               edge="end"
                               color="inherit"
                               aria-label="menu"

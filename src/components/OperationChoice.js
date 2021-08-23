@@ -12,7 +12,7 @@ const OperationChoice = (props) => {
           console.log(pathname);
 
           switch (pathname) {
-               case "/":
+               case "/array":
                     return (
                          <div>
                               <RadioGroup row name="operation" value={"Insert"}>

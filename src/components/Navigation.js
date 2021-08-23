@@ -10,37 +10,19 @@ import {
 import { Link } from "react-router-dom";
 import { listItems } from "../lib/constant";
 import { GroupAdd } from "@material-ui/icons";
-
-const listStyle = {
-     width: "90%",
-     textAlign: "center",
-     marginTop: "5px",
-};
-
-const divStyle = {
-     display: "flex",
-     flexDirection: "column",
-     justifyContent: "center",
-     alignItems: "center",
-     width: "250px",
-};
-
-const toolbarStyle = {
-     textAlgin: "center",
-     fontWeight: "700",
-};
+import '../css/Navigation.css';
 
 const Navigation = (props) => {
 
      return (
-          <div style={divStyle}>
-               <Toolbar style={toolbarStyle}>
+          <div className="nav">
+               <Toolbar className="nav__toolbar">
                     <h2>Algorithms</h2>
                </Toolbar>
                <div
                     style={{ width: "200px", backgroundColor: "#f50057", height: "5px" }}
                />
-               <List component="nav" style={listStyle}>
+               <List component="nav" className="nav__list">
                     {listItems.map((item) => {
                          return (
                               <ListItem
@@ -58,7 +40,7 @@ const Navigation = (props) => {
                     })}
                </List>
                <Divider variant="middle" />
-               <List style={listStyle}>
+               <List className="nav__list">
                     <ListItem
                          button
                          component={Link}

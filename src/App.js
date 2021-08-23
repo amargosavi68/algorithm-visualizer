@@ -6,6 +6,7 @@ import BinarySearch from "./components/BinarySearch";
 import Developers from "./components/Developers";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import Home from "./components/Home";
 import LinkedList from "./components/LinkedList";
 import Queue from "./components/Queue";
 import Stack from "./components/Stack";
@@ -18,7 +19,7 @@ function App() {
 				<Header />
 				<Container className="app__main">
 					<Switch>
-						<Route path="/" component={Array} exact />
+						<Route path="/" component={Home} exact />
 						<Route path="/array" component={Array} />
 						<Route path="/linked_list" component={LinkedList} />
 						<Route path="/stack" component={Stack} />
