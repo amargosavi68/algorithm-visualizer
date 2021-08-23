@@ -9,10 +9,10 @@ const radioGroupStyle = {
 }
 
 const OperationChoice = (props) => {
-     const { value, setValue } = props;
+     const { option, setOption } = props;
 
      const handleRadioChange = (name) => {
-          setValue(name)
+          setOption(name);
      }
 
      const RadioButtons = () => {
@@ -22,7 +22,7 @@ const OperationChoice = (props) => {
                case "/array":
                     return (
                          <div style={radioGroupStyle}>
-                              <RadioGroup row name="operation" value={value}>
+                              <RadioGroup row name="operation" value={option}>
                                    <FormControlLabel
                                         value="Insert"
                                         control={<Radio />}
@@ -58,18 +58,20 @@ const OperationChoice = (props) => {
                case '/stack':
                     return (
                          <div>
-                              <RadioGroup row name="operation" value={"Push"}>
+                              <RadioGroup row name="operation" value={option}>
                                    <FormControlLabel
                                         value="Push"
                                         control={<Radio />}
                                         label="Push"
                                         labelPlacement="end"
+                                        onChange={(e) => handleRadioChange("Push")}
                                    />
                                    <FormControlLabel
                                         value="Pop"
                                         control={<Radio />}
                                         label="Pop"
                                         labelPlacement="end"
+                                        onChange={(e) => handleRadioChange("Pop")}
                                    />
                               </RadioGroup>
                          </div>

@@ -3,15 +3,35 @@
      flex-wrap: wrap;
      flex-direction: column;
      align-items: center;
+     margin: 10px 0px
+}
+
+.array > h2 {
+     color: #777;
+}
+
+.visualization > h2 {
+     text-align: center;
+     color: #777;
+}
+
+.array__nodes {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: left;
+     align-items: left;
+     margin: 20px;
 }
 
 .array__form {
      margin: 10px 0px;
      display: flex;
-     width: 500px;
      align-items: center;
-     justify-content: space-around;
      flex-wrap: wrap;
+}
+
+.message {
+     height: 50px;
 }
 
 .array__form > TextField {
