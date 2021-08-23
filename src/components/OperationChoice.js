@@ -1,48 +1,55 @@
 import { FormControlLabel, Radio, RadioGroup } from "@material-ui/core";
 import React from "react";
 
-const OperationChoice = (props) => {
+const radioGroupStyle = {
+     display: 'flex',
+     flexDirection: 'column',
+     justifyContent: 'center',
+     alignItems: 'center'
+}
 
-     const handleRadioChange = (e) => {
-          console.log(e);
+const OperationChoice = (props) => {
+     const { value, setValue } = props;
+
+     const handleRadioChange = (name) => {
+          setValue(name)
      }
 
      const RadioButtons = () => {
           const { pathname } = window.location;
-          console.log(pathname);
 
           switch (pathname) {
                case "/array":
                     return (
-                         <div>
-                              <RadioGroup row name="operation" value={"Insert"}>
+                         <div style={radioGroupStyle}>
+                              <RadioGroup row name="operation" value={value}>
                                    <FormControlLabel
                                         value="Insert"
                                         control={<Radio />}
                                         label="Insert"
                                         labelPlacement="end"
-                                        onChange={handleRadioChange}
+                                        onChange={(e) => handleRadioChange("Insert")}
                                    />
                                    <FormControlLabel
                                         value="Update"
                                         control={<Radio />}
                                         label="Update"
                                         labelPlacement="end"
-                                        onChange={handleRadioChange}
+                                        onChange={(e) => handleRadioChange("Update")}
                                    />
                                    <FormControlLabel
                                         value="Search"
                                         control={<Radio />}
                                         label="Search"
                                         labelPlacement="end"
-                                        onChange={handleRadioChange}
+                                        onChange={(e) => handleRadioChange("Search")}
                                    />
                                    <FormControlLabel
                                         value="Delete"
                                         control={<Radio />}
                                         label="Delete"
                                         labelPlacement="end"
-                                        onChange={handleRadioChange}
+                                        onChange={(e) => handleRadioChange("Delete")}
                                    />
                               </RadioGroup>
                          </div>
