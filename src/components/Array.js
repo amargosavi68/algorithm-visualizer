@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import OperationChoice from "./OperationChoice";
 import "../css/Array.css";
 import { Button, Card } from "@material-ui/core";
-import { TextField } from "@material-ui/core";
+import { TextField, Grid } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import Node from "./Node";
 
@@ -14,7 +14,6 @@ const Array = (props) => {
      const [index, setIndex] = useState("");
 
      const [message, setMessage] = useState(null);
-
 
      const handleOnchange = (e) => {
           if (e.target.name === "data") {
@@ -30,41 +29,41 @@ const Array = (props) => {
                array.push(data);
                setArray(array);
                setMessage("Data inserted Successfully");
-          }
-          else if (option === "Update") {
+          } else if (option === "Update") {
                if (array.length > index) {
                     array[index] = data;
                     setMessage("Data updated successfully");
                } else {
                     setMessage("Please provide a valid index");
                }
-          }
-          else if(option === "Search") {
+          } else if (option === "Search") {
                let flag = 0;
-               for(let i = 0; i < array.length; i++) {
+               for (let i = 0; i < array.length; i++) {
                     if (array[i] === data) {
-                         flag = 1
-                         setMessage(`Data found at index ${i}`)
+                         flag = 1;
+                         setMessage(`Data found at index ${i}`);
                          break;
                     }
                }
                if (flag === 0) {
                     setMessage("Data is not in the array");
                }
-          }
-          else {
+          } else {
                if (array.length) {
-                    const arr = array.filter((value) => value !== data);
-                    setArray(arr);
-                    setMessage(`Data is removed from index ${index}`);
-               }
-               else {
+                    if (array.length > index) {
+                         const arr = array.filter((value, indx) => index != indx);
+                         setArray(arr);
+                         setMessage(`Data is removed from index ${index}`);
+                    } else {
+                         setMessage("Please enter the valid index");
+                    }
+               } else {
                     setMessage("Array is empty. Please fill the array with some elements");
                }
           }
-          
+
           setData("");
-          setIndex("");          
+          setIndex("");
           setTimeout(() => {
                setMessage(null);
           }, 3000);
@@ -75,107 +74,188 @@ const Array = (props) => {
                case "Insert":
                     return (
                          <form noValidate className="array__form">
-                              <TextField
-                                   className="form__data-field"
-                                   variant="outlined"
-                                   name="data"
-                                   value={data}
-                                   label="Enter the Value"
-                                   onChange={handleOnchange}
-                                   required
-                              />
-                              <Button
-                                   type="submit"
-                                   variant="outlined"
-                                   color="secondary"
-                                   onClick={handleSubmit}
-                                   disabled={data === ""}
+                              <Grid
+                                   justifyContent="center"
+                                   alignItems="center"
+                                   container
+                                   className="array__grid"
+                                   item
+                                   xs={9} sm={9} md={9} lg={3}
                               >
-                                   Insert
-                              </Button>
+                                   <TextField
+                                        className="form__data-field"
+                                        variant="outlined"
+                                        name="data"
+                                        value={data}
+                                        label="Enter the Value"
+                                        onChange={handleOnchange}
+                                        required
+                                   />
+                              </Grid>
+                              <Grid
+                                   justifyContent="center"
+                                   alignItems="center"
+                                   container
+                                   className="array__grid"
+                                   item
+                                   xs={9} sm={9} md={9} lg={3}
+                              >
+                                   <Button
+                                        type="submit"
+                                        variant="outlined"
+                                        color="secondary"
+                                        onClick={handleSubmit}
+                                        disabled={data === ""}
+                                   >
+                                        Insert
+                                   </Button>
+                              </Grid>
                          </form>
                     );
 
                case "Update":
                     return (
                          <form noValidate className="array__form">
-                              <TextField
-                                   className="form__index-field"
-                                   variant="outlined"
-                                   type="number"
-                                   name="index"
-                                   value={index}
-                                   label="Enter the Index"
-                                   onChange={handleOnchange}
-                                   required
-                              />
-                              <TextField
-                                   className="form__data-field"
-                                   variant="outlined"
-                                   name="data"
-                                   value={data}
-                                   label="Enter New Value"
-                                   onChange={handleOnchange}
-                                   required
-                              />
-                              <Button
-                                   type="submit"
-                                   variant="outlined"
-                                   color="secondary"
-                                   onClick={handleSubmit}
-                                   disabled={index === "" || data === ""}
+                              <Grid
+                                   justifyContent="center"
+                                   alignItems="center"
+                                   container
+                                   className="array__grid"
+                                   item
+                                   xs={9} sm={9} md={9} lg={3}
                               >
-                                   Update
-                              </Button>
+                                   <TextField
+                                        className="form__index-field"
+                                        variant="outlined"
+                                        type="number"
+                                        name="index"
+                                        value={index}
+                                        label="Enter the Index"
+                                        onChange={handleOnchange}
+                                        required
+                                   />
+                              </Grid>
+                              <Grid
+                                   justifyContent="center"
+                                   alignItems="center"
+                                   container
+                                   className="array__grid"
+                                   item
+                                   xs={9} sm={9} md={9} lg={3}
+                              >
+                                   <TextField
+                                        className="form__data-field"
+                                        variant="outlined"
+                                        name="data"
+                                        value={data}
+                                        label="Enter New Value"
+                                        onChange={handleOnchange}
+                                        required
+                                   />
+                              </Grid>
+                              <Grid
+                                   justifyContent="center"
+                                   alignItems="center"
+                                   container
+                                   className="array__grid"
+                                   item
+                                   xs={9} sm={9} md={9} lg={3}
+                              >
+                                   <Button
+                                        type="submit"
+                                        variant="outlined"
+                                        color="secondary"
+                                        onClick={handleSubmit}
+                                        disabled={index === "" || data === ""}
+                                   >
+                                        Update
+                                   </Button>
+                              </Grid>
                          </form>
                     );
-                    
-               case "Search": 
-               return (
-                    <form noValidate className="array__form">
-                         <TextField
-                              className="form__data-field"
-                              variant="outlined"
-                              name="data"
-                              value={data}
-                              label="Enter Search Value"
-                              onChange={handleOnchange}
-                              required
-                         />
-                         <Button
-                              type="submit"
-                              variant="outlined"
-                              color="secondary"
-                              onClick={handleSubmit}
-                              disabled={data === ""}
-                         >
-                              Search
-                         </Button>
-                    </form>
-               );
+
+               case "Search":
+                    return (
+                         <form noValidate className="array__form">
+                              <Grid
+                                   justifyContent="center"
+                                   alignItems="center"
+                                   container
+                                   className="array__grid"
+                                   item
+                                   xs={9} sm={9} md={9} lg={3}
+                              >
+                                   <TextField
+                                        className="form__data-field"
+                                        variant="outlined"
+                                        name="data"
+                                        value={data}
+                                        label="Enter Search Value"
+                                        onChange={handleOnchange}
+                                        required
+                                   />
+                              </Grid>
+                              <Grid
+                                   justifyContent="center"
+                                   alignItems="center"
+                                   container
+                                   className="array__grid"
+                                   item
+                                   xs={9} sm={9} md={9} lg={3}
+                              >
+                                   <Button
+                                        type="submit"
+                                        variant="outlined"
+                                        color="secondary"
+                                        onClick={handleSubmit}
+                                        disabled={data === ""}
+                                   >
+                                        Search
+                                   </Button>
+                              </Grid>
+                         </form>
+                    );
 
                case "Delete":
                     return (
                          <form noValidate className="array__form">
-                              <TextField
-                                   className="form__data-field"
-                                   variant="outlined"
-                                   type="number"
-                                   name="index"
-                                   value={index}
-                                   label="Enter the Index"
-                                   onChange={handleOnchange}
-                                   required
-                              />
-                              <Button
-                                   type="submit"
-                                   variant="outlined"
-                                   color="secondary"
-                                   onClick={handleSubmit}
-                                   disabled={index === ""}
+                              <Grid
+                                   justifyContent="center"
+                                   alignItems="center"
+                                   container
+                                   className="array__grid"
+                                   item
+                                   xs={9} sm={9} md={9} lg={3}
                               >
-                                   Delete
-                              </Button>
+                                   <TextField
+                                        className="form__data-field"
+                                        variant="outlined"
+                                        type="number"
+                                        name="index"
+                                        value={index}
+                                        label="Enter the Index"
+                                        onChange={handleOnchange}
+                                        required
+                                   />
+                              </Grid>
+                              <Grid
+                                   justifyContent="center"
+                                   alignItems="center"
+                                   container
+                                   className="array__grid"
+                                   item
+                                   xs={9} sm={9} md={9} lg={3}
+                              >
+                                   <Button
+                                        type="submit"
+                                        variant="outlined"
+                                        color="secondary"
+                                        onClick={handleSubmit}
+                                        disabled={index === ""}
+                                   >
+                                        Delete
+                                   </Button>
+                              </Grid>
                          </form>
                     );
                default:
@@ -199,7 +279,9 @@ const Array = (props) => {
                <Card className="visualization">
                     <h2>Visualization</h2>
                     <div className="array__nodes">
-                         {array.map((data, index) => <Node key={index} index={index} data={data} />)}
+                         {array.map((data, index) => (
+                              <Node key={index} index={index} data={data} />
+                         ))}
                     </div>
                </Card>
           </div>

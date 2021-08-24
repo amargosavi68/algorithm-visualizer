@@ -24,18 +24,19 @@
 }
 
 .array__form {
-     margin: 10px 0px;
+     margin: 10px;
      display: flex;
      align-items: center;
      flex-wrap: wrap;
+     justify-content: center;
+     width: 70%;
+}
+.array__form .array__grid {
+     margin: 10px;
 }
 
 .message {
      height: 50px;
-}
-
-.array__form > TextField {
-     width: 100%;
 }
 
 .form__data-field {
