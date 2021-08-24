@@ -199,7 +199,7 @@ const Array = (props) => {
                <Card className="visualization">
                     <h2>Visualization</h2>
                     <div className="array__nodes">
-                         {array.map((data, index) => <Node index={index} data={data} />)}
+                         {array.map((data, index) => <Node key={index} index={index} data={data} />)}
                     </div>
                </Card>
           </div>
