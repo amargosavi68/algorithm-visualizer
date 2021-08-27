@@ -13,6 +13,8 @@ const Array = (props) => {
      const [array, setArray] = useState([]);
      const [index, setIndex] = useState("");
 
+     const [searchIndex, setSearchIndex]= useState(null);
+
      const [message, setMessage] = useState(null);
 
      const handleOnchange = (e) => {
@@ -41,11 +43,13 @@ const Array = (props) => {
                for (let i = 0; i < array.length; i++) {
                     if (array[i] === data) {
                          flag = 1;
+                         setSearchIndex(i);
                          setMessage(`Data found at index ${i}`);
                          break;
                     }
                }
                if (flag === 0) {
+                    setSearchIndex(-1);
                     setMessage("Data is not in the array");
                }
           } else {
@@ -263,6 +267,10 @@ const Array = (props) => {
           }
      };
 
+     if (option !== "Search" && searchIndex !== -1 ) {
+          setSearchIndex(-1);
+     }
+
      return (
           <div>
                <div className="message">
@@ -280,7 +288,7 @@ const Array = (props) => {
                     <h2>Visualization</h2>
                     <div className="array__nodes">
                          {array.map((data, index) => (
-                              <Node key={index} index={index} data={data} />
+                              <Node searchIndex={index===searchIndex} key={index} index={index} data={data} />
                          ))}
                     </div>
                </Card>
