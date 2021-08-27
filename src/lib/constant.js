@@ -9,24 +9,6 @@ export const listItems = [
      },
      {
           key: 1,
-          text: 'Linked List',
-          component: <Link />,
-          url: '/linked_list'
-     },
-     {
-          key: 2,
-          text: 'Stack',
-          component: <Reorder />,
-          url: '/stack'
-     },
-     {
-          key: 3,
-          text: 'Queue',
-          component: <People />,
-          url: 'queue'
-     },
-     {
-          key: 4,
           text: 'Binary Search',
           component: <Search />,
           url: '/binary_search'
